@@ -26,3 +26,5 @@ jobs:
     - name: Build and Test with Gradle
       run: ./gradlew build
       
+    - name: Verify
+      run: ls -R spring-app/src/main/resources/static 
