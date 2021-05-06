@@ -24,15 +24,15 @@ jobs:
       run:  chmod +x gradlew
         
     - name: Build and Test with Gradle
-      run: ./gradlew build
+      run: ./gradlew bootJar
       
     - name: Deploy to AWS Elastic Beanstalk
       uses: einaregilsson/beanstalk-deploy@v13
       with:
         aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        application_name: human-resources-management
-        environment_name: Humanresourcesmanagement-env
+        application_name: hrm
+        environment_name: hrm-env
         version_label: ${{github.SHA}}
         region: us-east-2
         deployment_package: spring-app/build/libs/hrm-1.0.0.jar
